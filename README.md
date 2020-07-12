@@ -25,6 +25,7 @@ conda env update --name image_labeler_env --file environment.dev.yml
 
 ## Running the application
 To run the application first activate the environment and then run the main.py script.
+Make sure to provide pictures to classify.
 ```bash
 conda activate image_labeler_env
 python main.py
@@ -48,7 +49,7 @@ To build the image from the project directory run
 ```bash
 docker build -t image_labeler .
 ```
-To run the image run
+To run the image execute
 ```bash
 docker run image_labeler
 ```
