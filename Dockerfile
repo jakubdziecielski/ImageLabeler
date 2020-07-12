@@ -7,9 +7,6 @@ COPY main.py .
 COPY model.pkl .
 COPY input ./input
 
-# Create directory for storing csv output
-RUN mkdir -p ./output
-
 # Handle conda environment dependencies
 COPY environment.yml .
 RUN conda env create -f environment.yml
