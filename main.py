@@ -69,7 +69,7 @@ def label_pictures():
     classification results to csv file.
     """
     data: ImageList = get_data(args.image_path)
-    assert len(data.items) != 0, 'No images found, stopping the application.'
+    assert len(data.items), 'No images found, stopping the application.'
 
     learner: Learner = get_learner(args.model_path, data)
 
