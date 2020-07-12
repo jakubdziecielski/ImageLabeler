@@ -69,7 +69,7 @@ def label_pictures():
     classification results to csv file.
     """
     data: ImageList = get_data(args.image_path)
-    assert len(data.items), 'No images found, stopping the application.'
+    assert data.items, 'No images found, stopping the application.'
 
     learner: Learner = get_learner(args.model_path, data)
 
@@ -104,5 +104,3 @@ def label_pictures():
 
 if __name__ == '__main__':
     label_pictures()
-
-# TODO: Add colab notebook
