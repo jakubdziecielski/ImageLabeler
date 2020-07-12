@@ -1,0 +1,12 @@
+name: image_labeler_env
+channels:
+- pytorch
+- fastai
+dependencies:
+- python=3.6.9
+- fastai=1.0.61
+- pytorch=1.5.1
+- pip
+- pip:
+  - torch==1.4
+  - torchvision==0.5.0
