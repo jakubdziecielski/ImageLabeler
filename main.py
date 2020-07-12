@@ -44,6 +44,8 @@ def get_data(data_path: str) -> Union[ImageList, ItemList]:
     :param data_path: Path to location with images
     :return: Object that can be loaded into learner
     """
+
+    assert os.path.exists(data_path), 'Specified input location not found, stopping the application.'
     return ImageList.from_folder(data_path)
 
 
@@ -67,6 +69,8 @@ def label_pictures():
     classification results to csv file.
     """
     data: ImageList = get_data(args.image_path)
+    assert len(data.items) != 0, 'No images found, stopping the application.'
+
     learner: Learner = get_learner(args.model_path, data)
 
     classes: List[str] = learner.data.classes
@@ -83,6 +87,10 @@ def label_pictures():
     file_names = []
     for i in range(image_num):
         file_names.append(str(learner.data.test_ds.items[i]).split(os.path.sep)[-1])
+
+    output_dir = ''.join(args.output_path.split(os.path.sep)[:-1])
+    if not os.path.exists(output_dir):
+        os.mkdir(output_dir)
 
     pd.DataFrame(
         data={
