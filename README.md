@@ -44,7 +44,8 @@ To run locally notebook should be run in the same environment as the application
 
 ## Application in Docker
 Attached Dockerfile can be used to build the image and run
-the application in Docker. First make sure the images to classify are stored in `/input` directory. 
+the application in Docker. First make sure the images to classify are stored in `input/` directory 
+in project root directory. 
 To build the image from the project directory run
 ```bash
 docker build -t image_labeler .
@@ -53,7 +54,7 @@ To run the image execute
 ```bash
 docker run image_labeler
 ```
-To copy the csv with classification results to current location run
+To copy the csv with classification results to current host location run
 ```bash
 CONTAINER_ID=$(docker run -dit image_labeler)
 docker cp $CONTAINER_ID:/app/output/wynik.csv .
